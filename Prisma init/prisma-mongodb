@@ -39,3 +39,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export { prisma };
+
+
+// push in mongodb
+
+npx prisma db push
+
+// prisma client generate 
+
+npx prisma generate
+
+
