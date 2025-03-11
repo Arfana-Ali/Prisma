@@ -1,17 +1,24 @@
-//installing prisma with mongodb
+// 1st step
+// Install Prisma
+//Prisma requires two packages:
+//@prisma/client → Prisma Client for database queries
+//prisma → CLI tool for schema management
 
 npm install @prisma/client
 npm install -D prisma
 
 
-//prisma inti
+// step-2
+//initialize Prisma with MongoDB as the provider - This command creates a prisma/schema.prisma file and a .env file.
 
 npx prisma init --datasource-provider mongodb
 
 
-(* .env setup *)
+// step-3 
+//Configure MongoDB Connection - .env file
 
-(* prisma schema config  *)
+// step-4 
+// Define Prisma Schema
 
 
 generator client {
@@ -30,18 +37,19 @@ model portfolioCient{
   message String
 }
 
-
-// push in mongodb
+//Step 5
+// Push Schema to Database
 
 npx prisma db push
 
-// prisma client generate 
-
+Step 6
+//Generate Prisma Client
 npx prisma generate
 
 
 
-(* connect prisma with database  *)
+//Step 7: Setup Prisma in Remix
+//Create a Prisma utility file to manage the database connection.
 
 
 import { PrismaClient } from "@prisma/client";
