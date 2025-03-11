@@ -31,16 +31,6 @@ model portfolioCient{
 }
 
 
-(* prisma utils db config  *)
-
-
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-export { prisma };
-
-
 // push in mongodb
 
 npx prisma db push
@@ -49,4 +39,14 @@ npx prisma db push
 
 npx prisma generate
 
+
+
+(* connect prisma with database  *)
+
+
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export { prisma };
 
