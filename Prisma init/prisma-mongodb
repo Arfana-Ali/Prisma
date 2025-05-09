@@ -1,60 +1,60 @@
-// // 1st step
-// // Install Prisma
-// //Prisma requires two packages:
-// //@prisma/client → Prisma Client for database queries
-// //prisma → CLI tool for schema management
+// 1st step
+// Install Prisma
+//Prisma requires two packages:
+//@prisma/client → Prisma Client for database queries
+//prisma → CLI tool for schema management
 
-// npm install @prisma/client
-// npm install -D prisma
-
-
-// // step-2
-// //initialize Prisma with MongoDB as the provider - This command creates a prisma/schema.prisma file and a .env file.
-
-// npx prisma init --datasource-provider mongodb
+npm install @prisma/client
+npm install -D prisma
 
 
-// // step-3 
-// //Configure MongoDB Connection - .env file
+// step-2
+//initialize Prisma with MongoDB as the provider - This command creates a prisma/schema.prisma file and a .env file.
 
-// // step-4 
-// // Define Prisma Schema
-
-
-// generator client {
-//   provider = "prisma-client-js"
-// }
-
-// datasource db {
-//   provider = "mongodb"
-//   url      = env("DATABASE_URL")
-// }
-
-// model portfolioCient{
-//    id     String @id @default(auto()) @map("_id") @db.ObjectId
-//   name  String
-//   email String @unique
-//   message String
-// }
-
-// //Step 5
-// // Push Schema to Database
-
-// npx prisma db push
-
-// Step 6
-// //Generate Prisma Client
-// npx prisma generate
+npx prisma init --datasource-provider mongodb
 
 
+// step-3 
+//Configure MongoDB Connection - .env file
 
-// //Step 7: Setup Prisma in Remix
-// //Create a Prisma utility file to manage the database connection.
+// step-4 
+// Define Prisma Schema
 
 
-// import { PrismaClient } from "@prisma/client";
+generator client {
+  provider = "prisma-client-js"
+}
 
-// const prisma = new PrismaClient();
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
 
-// export { prisma };
+model portfolioCient{
+   id     String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String
+  email String @unique
+  message String
+}
+
+//Step 5
+// Push Schema to Database
+
+npx prisma db push
+
+Step 6
+//Generate Prisma Client
+npx prisma generate
+
+
+
+//Step 7: Setup Prisma in Remix
+//Create a Prisma utility file to manage the database connection.
+
+
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+export { prisma };
 
